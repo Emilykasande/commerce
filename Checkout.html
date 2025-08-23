@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout - Mayondo Wood & Furniture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+         header {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .checkout-left,
+        .checkout-right {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .checkout-right {
+            max-width: 400px;
+        }
+
+        form input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        #order-summary {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .order-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-details p {
+            margin: 4px 0;
+        }
+
+        .item-quantity input {
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        #order-total {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .placeorder-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .checkout-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 15px 10px;
+            font-size: 0.85em;
+            margin-top: 30px;
+        }
+
+        footer .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        footer h3,
+        footer h4 {
+            margin-bottom: 6px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+
+        footer a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons {
+            margin-top: 5px;
+        }
+
+        .social-icons a {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9em;
+            margin-right: 6px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Social colors */
+        .facebook {
+            background: #3b5998;
+        }
+
+        .instagram {
+            background: #e1306c;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        @media (max-width: 600px) {
+            footer .footer-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        header {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       }
+
+      header .top-row {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 15px;  /* space between logo and text */
+       margin-bottom: 10px;
+      }
+
+      header h1 {
+        margin: 0;
+        }
+
+    header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-row img {
+    height: 70px;  /* small logo size */
+    width: auto;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-row">
+            <img src="./Images/mwf.png" alt="logo">
+            <h1>MAYONDO WOOD & FURNITURE</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <div class="checkout-left">
+            <form id="checkout-form">
+                <h3>Shipping Information</h3>
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="text" id="address" placeholder="Address" required>
+                <input type="email" id="email" placeholder="Email" required>
+
+                <h3>Payment Information</h3>
+                <input type="text" id="card" placeholder="Card Number" required>
+                <input type="text" id="expiry" placeholder="Expiry Date (MM/YY)" required>
+                <input type="text" id="cvv" placeholder="CVV" required>
+
+                <button type="submit">Confirm Payment</button>
+            </form>
+        </div>
+
+        <div class="checkout-right">
+            <h3>Your Order</h3>
+            <div id="order-summary"></div>
+            <p id="order-total">Total: UGX 0</p>
+            <!-- <a href="payment.html" class="checkout-btn">Proceed to Payment</a> -->
+            <button type="submit">Place Order</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="about">
+                <h3>Mayondo Wood & Furniture</h3>
+                <p>Handcrafted furniture for your home & office since 2010.</p>
+            </div>
+            <div class="contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> info@mayondowood.com</p>
+                <p><i class="fas fa-phone"></i> +256 700 000 000</p>
+            </div>
+            <div class="social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <p style="text-align:center; font-size:0.8em; margin-top:8px;">&copy; 2010 Mayondo Wood & Furniture. All rights
+            reserved.</p>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        const orderSummary = document.getElementById("order-summary");
+        const orderTotal = document.getElementById("order-total");
+
+        if (!localStorage.getItem("cart")) {
+            localStorage.setItem("cart", JSON.stringify([
+                { name: "Chair", quantity: 2, price: 50000 },
+                { name: "Table", quantity: 1, price: 150000 }
+            ]));
+        }
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function renderCart() {
+            orderSummary.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const div = document.createElement("div");
+                div.classList.add("order-item");
+                div.innerHTML = `
+          <div class="item-details">
+              <p><strong>${item.name}</strong></p>
+              <p>Price: UGX ${item.price}</p>
+              <p class="item-quantity">
+                  Quantity: 
+                  <input type="number" min="1" value="${item.quantity}" data-index="${index}">
+              </p>
+              <p>Subtotal: UGX <span class="subtotal">${item.price * item.quantity}</span></p>
+          </div>
+        `;
+                orderSummary.appendChild(div);
+                total += item.price * item.quantity;
+            });
+
+            orderTotal.textContent = `Total: UGX ${total}`;
+
+            const inputs = document.querySelectorAll(".item-quantity input");
+            inputs.forEach(input => {
+                input.addEventListener("change", (e) => {
+                    const idx = e.target.dataset.index;
+                    let value = parseInt(e.target.value);
+                    if (value < 1) value = 1;
+                    cart[idx].quantity = value;
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    renderCart();
+                });
+            });
+        }
+
+        renderCart();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>MAYONDO WOOD & FURNITURE</title>
+    <style>
+        :root {
+            --card-img-height: 260px;
+            --wrap-max: 1000px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .carousel-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            max-width: var(--wrap-max);
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+        }
+
+        h2 {
+            margin: 10px 0 15px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .product-card {
+            flex: 0 0 100%;
+            padding: 10px;
+            background: rgb(235, 226, 205);
+            border-radius: 8px;
+            box-shadow: goldenrod;
+        }
+
+        .image-box {
+            height: var(--card-img-height);
+            background: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .product-card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .product-card p {
+            margin: 5px 0 10px;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            padding: 6px 12px;
+            font-size: .9em;
+            border: none;
+            background: #222;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-card button:hover {
+            background: #555;
+        }
+
+        .carousel-buttons {
+            margin-top: 10px;
+        }
+
+        .carousel-buttons button {
+            padding: 6px 12px;
+            margin: 0 5px;
+            border: none;
+            background: black;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .carousel-buttons button:hover {
+            background: #555;
+        }
+        /* Footer Styling */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 15px 10px;
+            font-size: 0.85em;
+            margin-top: 30px;
+        }
+
+        footer .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        footer h3,
+        footer h4 {
+            margin-bottom: 6px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+
+        footer a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons {
+            margin-top: 5px;
+        }
+
+        .social-icons a {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9em;
+            margin-right: 6px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Social colors */
+        .facebook {
+            background: #3b5998;
+        }
+
+        .instagram {
+            background: #e1306c;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        @media (max-width: 600px) {
+            footer .footer-container {
+                flex-direction: column;
+                gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        
+        <h1>MAYONDO WOOD & FURNITURE</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <!-- Row 1 -->
+    <div class="carousel-row">
+        <div class="container">
+            <h2>Bed Collection</h2>
+            <div class="carousel">
+                <div class="carousel-track" id="carousel-track-1"></div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev-1">Prev</button>
+                <button id="next-1">Next</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Wooden Racks</h2>
+            <div class="carousel">
+                <div class="carousel-track" id="carousel-track-2"></div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev-2">Prev</button>
+                <button id="next-2">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="carousel-row">
+        <div class="container">
+            <h2>Dining Collection</h2>
+            <div class="carousel">
+                <div class="carousel-track" id="carousel-track-3"></div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev-3">Prev</button>
+                <button id="next-3">Next</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Sitting Room</h2>
+            <div class="carousel">
+                <div class="carousel-track" id="carousel-track-4"></div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev-4">Prev</button>
+                <button id="next-4">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="carousel-row">
+        <div class="container">
+            <h2>Center tables</table>
+            </h2>
+            <div class="carousel">
+                <div class="carousel-track" id="carousel-track-5"></div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev-5">Prev</button>
+                <button id="next-5">Next</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Kitchen Collection</h2>
+            <div class="carousel">
+                <div class="carousel-track" id="carousel-track-6"></div>
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev-6">Prev</button>
+                <button id="next-6">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="about">
+                <h3>Mayondo Wood & Furniture</h3>
+                <p>Handcrafted furniture for your home & office since 2010.</p>
+            </div>
+            <div class="contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> info@mayondowood.com</p>
+                <p><i class="fas fa-phone"></i> +256 700 000 000</p>
+            </div>
+            <div class="social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <p style="text-align:center; font-size:0.8em; margin-top:8px;">&copy; 2025 Mayondo Wood & Furniture. All rights
+            reserved.</p>
+    </footer>
+
+    <script>
+        
+    // --------- DATA ---------
+                const products1 = [
+                {id: 1, name: "Wooden bed", price: 550000, img: "./Images/Bed 3.jpeg" },
+                {id: 2, name: "Bed", price: 500000, img: "./Images/Bed 2.jpeg" },
+                {id: 3, name: "Bunk bed", price: 600000, img: "./Images/Deker Bed.jpeg" },
+                {id: 4, name: "Master bed", price: 700000, img: "./Images/Bed1.jpeg" },
+                {id: 5, name: "Kids bed", price: 400000, img: "./Images/Kids bed.jpeg" }
+                ];
+
+                const products2 = [
+                {id: 6, name: "Book case", price: 350000, img: "./Images/Book case1.jpeg" },
+                {id: 7, name: "Book case", price: 300000, img: "./Images/Book case2.jpeg" },
+                {id: 8, name: "Plant Rack", price: 150000, img: "./Images/Designer 1.jpeg" },
+                {id: 9, name: "Shoe Rack", price: 200000, img: "./Images/Shoe rack.jpeg" }
+                ];
+
+                const products3 = [
+                {id: 10, name: "Dining Table", price: 700000, img: "./Images/Dining 6.jpeg" },
+                {id: 11, name: "Dining Set", price: 400000, img: "./Images/Dining 2.jpeg" },
+                {id: 12, name: "Luxury Dining", price: 600000, img: "./Images/Dining 4.jpeg" },
+                {id: 13, name: "Dining", price: 500000, img: "./Images/Dining 7.jpeg" },
+                {id: 14, name: "Best Dining", price: 800000, img: "./Images/Dining 5.jpeg" }
+                ];
+
+                const products4 = [
+                {id: 15, name: "Sofa set", price: 700000, img: "./Images/Sofa set.jpeg" },
+                {id: 16, name: "Single seater", price: 300000, img: "./Images/Chair design.jpeg" },
+                {id: 17, name: "Luxury Sofa", price: 800000, img: "./Images/Blue sofa.jpeg" },
+                {id: 18, name: "Best Sofa", price: 400000, img: "./Images/Sofa.jpeg" }
+                ];
+
+                const products5 = [
+                {id: 19, name: "Blue Table", price: 800000, img: "./Images/Blue table.jpeg" },
+                {id: 20, name: "Center Table", price: 700000, img: "./Images/Center table 3.jpeg" },
+                {id: 21, name: "Center Table", price: 900000, img: "./Images/Center Table1.jpeg" },
+                {id: 22, name: "Table Design", price: 450000, img: "./Images/Table design.jpeg" },
+                {id: 23, name: "Mirror table", price: 500000, img: "./Images/Mirror table.jpeg" }
+                ];
+
+                const products6 = [
+                {id: 24, name: "Kitchen 1", price: 500000, img: "./Images/Kitchen 1.jpeg" },
+                {id: 25, name: "Kitchen 2", price: 450000, img: "./Images/Kitchen 2.jpeg" },
+                {id: 26, name: "Kitchen 3", price: 390000, img: "./Images/Kitchen 3.jpeg" },
+                {id: 27, name: "Kitchen unit", price: 250000, img: "./Images/Kitchen unit.jpeg" }
+                ];
+
+                // --------- ADD TO CART ---------
+                function addToCart(id, name, price) {
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existing = cart.find(item => item.id === id);
+                if (existing) {
+                    existing.qty += 1;
+        } else {
+                    cart.push({ id, name, price, qty: 1 });
+        }
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                // ✅ Redirect to cart page after adding
+                window.location.href = "cart.html";
+    }
+
+                // --------- HELPERS ---------
+                function handleImageError(imgEl) {
+                    imgEl.alt = "Image not found";
+                imgEl.closest('.image-box').style.background = "#eee";
+    }
+
+                // --------- CAROUSEL ---------
+                function initCarousel(products, trackId, prevBtnId, nextBtnId) {
+        const track = document.getElementById(trackId);
+        track.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <div class="image-box">
+                        <img loading="lazy" src="${p.img}" alt="${p.name}" onerror="handleImageError(this)">
+                    </div>
+                    <h3>${p.name}</h3>
+                    <p>UGX ${p.price.toLocaleString()}</p>
+                    <button onclick="addToCart(${p.id}, '${p.name.replace(/'/g, "\\'")}', ${p.price})">Add to Cart</button>
+            </div>
+            `).join("");
+
+        let currentIndex = 0;
+        const prevButton = document.getElementById(prevBtnId);
+        const nextButton = document.getElementById(nextBtnId);
+
+        function updateCarousel() {
+            const width = track.clientWidth;
+            track.style.transform = `translateX(-${ currentIndex * width}px)`;
+        }
+
+        prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + products.length) % products.length;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % products.length;
+            updateCarousel();
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % products.length;
+            updateCarousel();
+        }, 3000);
+
+        updateCarousel();
+        window.addEventListener('resize', updateCarousel);
+    }
+
+      // --------- INIT ALL CAROUSELS ---------
+      initCarousel(products1, "carousel-track-1", "prev-1", "next-1");
+      initCarousel(products2, "carousel-track-2", "prev-2", "next-2");
+      initCarousel(products3, "carousel-track-3", "prev-3", "next-3");
+      initCarousel(products4, "carousel-track-4", "prev-4", "next-4");
+      initCarousel(products5, "carousel-track-5", "prev-5", "next-5");
+      initCarousel(products6, "carousel-track-6", "prev-6", "next-6");
+ </script>
